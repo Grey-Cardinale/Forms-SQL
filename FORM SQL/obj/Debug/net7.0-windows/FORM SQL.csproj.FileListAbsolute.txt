@@ -1,0 +1,27 @@
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\FORM SQL.exe
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\FORM SQL.deps.json
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\FORM SQL.runtimeconfig.json
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\FORM SQL.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\FORM SQL.pdb
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.csproj.AssemblyReference.cache
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.Form1.resources
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.csproj.GenerateResource.cache
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.AssemblyInfoInputs.cache
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.AssemblyInfo.cs
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.csproj.CoreCompileInputs.cache
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\refint\FORM SQL.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.pdb
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.genruntimeconfig.cache
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\ref\FORM SQL.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.Student.resources
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.StudentAddcs.resources
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\linq2db.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\System.Data.SQLite.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\bin\Debug\net7.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.csproj.CopyComplete
+C:\Users\artem\Desktop\projects\FORM SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.ConfirmForm.resources
