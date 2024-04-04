@@ -43,9 +43,12 @@
             dataGridView1 = new DataGridView();
             errorProvider1 = new ErrorProvider(components);
             errorProvider2 = new ErrorProvider(components);
+            errorProvider3 = new ErrorProvider(components);
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider3).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -157,6 +160,14 @@
             // 
             errorProvider2.ContainerControl = this;
             // 
+            // errorProvider3
+            // 
+            errorProvider3.ContainerControl = this;
+            // 
+            // timer1
+            // 
+            timer1.Interval = 10000;
+            // 
             // StudentAddcs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -182,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,5 +214,7 @@
         private DataGridView dataGridView1;
         private ErrorProvider errorProvider1;
         private ErrorProvider errorProvider2;
+        private ErrorProvider errorProvider3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

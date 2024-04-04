@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z02Htozq42Hqe/ksiXjHGpFrkiQoa4d7n2tCepjJbzUOSHZgMfksLpUp130PX72TOgKLU7dBtBVap6Iu16EB+g==",
+  "dgSpecHash": "Hi0FO9Ersma3btcDDOGzUEBgRcz9IJDR/bFtHTH7gPfrqXBfziRXovXJgOSzkVCGgx8S3cHqpYUabg2umIZcVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\artem\\Desktop\\projects\\FORM SQL\\FORM SQL\\FORM SQL.csproj",
+  "projectFilePath": "C:\\Users\\artem\\Desktop\\projects\\FORM SQL\\Forms-SQL\\FORM SQL\\FORM SQL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artem\\.nuget\\packages\\linq2db\\5.4.0\\linq2db.5.4.0.nupkg.sha512",
     "C:\\Users\\artem\\.nuget\\packages\\linq2db.sqlite\\5.4.0\\linq2db.sqlite.5.4.0.nupkg.sha512",

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using LinqToDB.SqlQuery;
 using SSQL;
+using System.Text.RegularExpressions;
 
 namespace FORM_SQL
 {
@@ -19,10 +20,14 @@ namespace FORM_SQL
         public List<Specialisation> Specs = new List<Specialisation>();
         public List<StudentFunc> Students = new List<StudentFunc>();
         public List<Projects> Projects = new List<Projects>();
+        private bool flag1, flag2, flag3 = false;
         public StudentAddcs()
         {
             InitializeComponent();
-
+            this.Enter += button_Ok_Activated;
+            textBox1.TextChanged += textBox1_TextChanged;
+            textBox2.TextChanged += textBox2_TextChanged;
+            textBox3.TextChanged += textBox3_TextChanged;
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.HeaderText = "Name";
             DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
@@ -36,6 +41,9 @@ namespace FORM_SQL
             DataGridViewTextBoxColumn column6 = new DataGridViewTextBoxColumn();
             column6.HeaderText = "Project";
 
+
+            button_Ok.Enabled = false;
+            timer1.Enabled = true;
             dataGridView1.Columns.Add(column1);
             dataGridView1.Columns.Add(column2);
             dataGridView1.Columns.Add(column3);
@@ -43,8 +51,6 @@ namespace FORM_SQL
             dataGridView1.Columns.Add(column5);
             dataGridView1.Columns.Add(column6);
             string connectionString = "Data Source=C:\\Users\\artem\\Desktop\\projects\\SSQL\\1.db;Version=3;";
-
-
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -151,5 +157,104 @@ namespace FORM_SQL
 
 
         }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1_Validating(sender, e);
+        }
+        private void textBox1_Validating(object sender, EventArgs e)
+        {
+            var temp = textBox1.Text;
+            string pattern = @"^[а-яА-ЯёЁіІїЇґҐ]+$";
+            errorProvider1.Clear();
+
+            if (!Regex.IsMatch(temp, pattern))
+            {
+                //MessageBox.Show("Введіть ім'я українською мовою", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                textBox1.Focus();
+                textBox1.SelectAll();
+                flag1 = false;
+                errorProvider1.SetError(textBox1, "1223");
+
+            }
+            else
+            {
+                flag1 = true;
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2_Validating(sender, e);
+        }
+        private void textBox2_Validating(object sender, EventArgs e)
+        {
+            var temp = textBox2.Text;
+            string pattern = @"^[а-яА-ЯёЁіІїЇґҐ]+$";
+            errorProvider2.Clear();
+
+            if (!Regex.IsMatch(temp, pattern))
+            {
+                //MessageBox.Show("Введіть ім'я українською мовою", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                textBox2.Focus();
+                textBox2.SelectAll();
+                flag2 = false;
+                errorProvider2.SetError(textBox2, "1223");
+
+            }
+            else
+            {
+                flag2 = true;
+            }
+        }
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            textBox3_Validating(sender, e);
+        }
+
+        private void textBox3_Validating(object sender, EventArgs e)
+        {
+            var temp = textBox3.Text;
+            int age;
+
+            // Перевірка чи введене значення може бути конвертоване в число
+            if (!int.TryParse(temp, out age))
+            {
+                // Якщо не вдалося конвертувати введене значення в число, вивести помилку
+                flag3 = false;
+                errorProvider3.SetError(textBox3, "Введіть коректний вік");
+                // e.Cancel = true;
+            }
+            else
+            {
+                // Перевірка чи вік в межах припустимого діапазону (наприклад, від 18 до 100)
+                if (age < 12 || age > 100)
+                {
+                    // Якщо вік не в межах припустимого діапазону, вивести помилку
+                    flag3 = false;
+                    errorProvider3.SetError(textBox3, "Введіть вік від 12 до 100");
+                    //e.Cancel = true;
+                }
+                else
+                {
+                    // Якщо введене значення відповідає усім умовам, очистити помилку
+                    errorProvider3.Clear();
+
+                    flag3 = true;
+
+                }
+            }
+        }
+
+        private void button_Ok_Activated(object sender, EventArgs e)
+        {
+            if (flag1 && flag2 && flag3)
+            {
+                button_Ok.Enabled = true;
+            }
+            else { button_Ok.Enabled = false; }
+        }
+
     }
 }
