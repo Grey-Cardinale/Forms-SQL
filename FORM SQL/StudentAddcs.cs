@@ -24,7 +24,7 @@ namespace FORM_SQL
         public StudentAddcs()
         {
             InitializeComponent();
-            this.Enter += button_Ok_Activated;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             textBox1.TextChanged += textBox1_TextChanged;
             textBox2.TextChanged += textBox2_TextChanged;
             textBox3.TextChanged += textBox3_TextChanged;
@@ -149,7 +149,18 @@ namespace FORM_SQL
             var specTmp = comboBox1.SelectedItem.ToString();
             var tmpSpec = Specs.Find(n => n.Type == specTmp);
             temp1.SpecID = tmpSpec.SpecID;
+            temp1.ProjID = 1;
+            string connectionString = "Data Source=C:\\Users\\artem\\Desktop\\projects\\SSQL\\1.db;Version=3;";
 
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string insert_str = @"INSERT INTO Students (Name, Surname, Age, School, [Spec ID], [Project ID]) VALUES" + $" ('{temp1.Name}', '{temp1.SecondName}', '{temp1.Age}', '{temp1.School}', '{temp1.SpecID}', '{temp1.ProjID}');";
+                using (SQLiteCommand command = new SQLiteCommand(insert_str, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
             var ok = new ConfirmForm();
             ok.ShowDialog();
             this.Close();
@@ -160,6 +171,8 @@ namespace FORM_SQL
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             textBox1_Validating(sender, e);
+            button_Ok_Activated(sender, e);
+
         }
         private void textBox1_Validating(object sender, EventArgs e)
         {
@@ -186,6 +199,8 @@ namespace FORM_SQL
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             textBox2_Validating(sender, e);
+            button_Ok_Activated(sender, e);
+
         }
         private void textBox2_Validating(object sender, EventArgs e)
         {
@@ -211,6 +226,8 @@ namespace FORM_SQL
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             textBox3_Validating(sender, e);
+            button_Ok_Activated(sender, e);
+
         }
 
         private void textBox3_Validating(object sender, EventArgs e)
@@ -253,7 +270,10 @@ namespace FORM_SQL
             {
                 button_Ok.Enabled = true;
             }
-            else { button_Ok.Enabled = false; }
+            else
+            {
+                button_Ok.Enabled = false;
+            }
         }
 
     }

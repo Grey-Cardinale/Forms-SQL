@@ -49,12 +49,13 @@
             button1.TabIndex = 1;
             button1.Text = "Ок";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ConfirmForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(707, 450);
             Controls.Add(button1);
             Controls.Add(label1);
             Name = "ConfirmForm";

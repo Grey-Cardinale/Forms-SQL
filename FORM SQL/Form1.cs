@@ -17,7 +17,7 @@ namespace FORM_SQL
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var Student = new Student();
+            var Student = new SpecForm();
             this.Hide();
             Student.ShowDialog();
             this.Show();
