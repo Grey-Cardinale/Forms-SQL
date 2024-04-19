@@ -19,7 +19,10 @@ namespace FORM_SQL
 
         private void button2_Click(object sender, EventArgs e) //delete
         {
-
+            var studentDel = new StudentDel();
+            this.Hide();
+            studentDel.ShowDialog();
+            this.Show();
         }
 
         private void button1_Click(object sender, EventArgs e) //dodavanna

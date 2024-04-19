@@ -25,9 +25,9 @@ namespace FORM_SQL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var Student = new Student();
+            var a = new ADDDEL_Project();
             this.Hide();
-            Student.ShowDialog();
+            a.ShowDialog();
             this.Show();
         }
     }
