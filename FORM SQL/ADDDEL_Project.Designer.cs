@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             comboBox1 = new ComboBox();
             button_Ok = new Button();
@@ -41,7 +42,9 @@
             button1 = new Button();
             textBox4 = new TextBox();
             label4 = new Label();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -136,6 +139,7 @@
             button1.TabIndex = 28;
             button1.Text = "Видалити";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // textBox4
             // 
@@ -152,6 +156,10 @@
             label4.Size = new Size(18, 15);
             label4.TabIndex = 29;
             label4.Text = "ID";
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // ADDDEL_Project
             // 
@@ -174,6 +182,7 @@
             Name = "ADDDEL_Project";
             Text = "ADDDEL_Project";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,5 +202,6 @@
         private Button button1;
         private TextBox textBox4;
         private Label label4;
+        private ErrorProvider errorProvider1;
     }
 }

@@ -14,7 +14,7 @@ namespace FORM_SQL
         public int Age { get; set; }
         public string School { get; set; }  
         public int SpecID { get; set; }
-        public int ProjID { get; set; }
+        //public int ProjID { get; set; }
 
         public StudentFunc()
         {
@@ -24,9 +24,9 @@ namespace FORM_SQL
             Age = 0;
             School = string.Empty;
             SpecID = 0;
-            ProjID = 0;
+            //ProjID = 0;
         }
-        public StudentFunc(int Student_Id, string Name, string SecondName, int Age, string School, int SpecID, int ProjID )
+        public StudentFunc(int Student_Id, string Name, string SecondName, int Age, string School, int SpecID)
         {
             this.Student_Id = Student_Id;
             this.Name = Name;
@@ -34,7 +34,7 @@ namespace FORM_SQL
             this.Age = Age;
             this.School = School;
             this.SpecID = SpecID;
-            this.ProjID = ProjID;
+            //this.ProjID = ProjID;
         }
     }
 }

@@ -53,6 +53,7 @@ C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-win
 C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\FORM SQL.genruntimeconfig.cache
 C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\ref\FORM SQL.dll
 C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.SpecForm.resources
-C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.StudentDel.resources
 C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.ADDDEL_Project.resources
 C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.ProjectForm.resources
+C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.StudentDel.resources
+C:\Users\artem\Desktop\projects\FORM SQL\Forms-SQL\FORM SQL\obj\Debug\net7.0-windows\FORM_SQL.LinkForm_.resources

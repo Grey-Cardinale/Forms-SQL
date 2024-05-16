@@ -91,7 +91,7 @@ namespace FORM_SQL
                     {
                         while (reader.Read())
                         {
-                            Projects tmp = new Projects(Convert.ToInt32(reader["Project ID"]), Convert.ToInt32(reader["Spec ID"]), reader["Name"].ToString(), reader["DDL"].ToString(), reader["Info"].ToString(), Convert.ToInt32(reader["Stud ID"]));
+                            Projects tmp = new Projects(Convert.ToInt32(reader["Project ID"]), Convert.ToInt32(reader["Spec ID"]), reader["Name"].ToString(), reader["DDL"].ToString(), reader["Info"].ToString());
                             Projects.Add(tmp);
                         }
                     }
@@ -111,7 +111,7 @@ namespace FORM_SQL
                     {
                         while (reader.Read())
                         {
-                            StudentFunc tmp = new StudentFunc(Convert.ToInt32(reader["Studen ID"]), reader["Name"].ToString(), reader["Surname"].ToString(), Convert.ToInt32(reader["Age"]), reader["School"].ToString(), Convert.ToInt32(reader["Spec ID"]), Convert.ToInt32(reader["Project ID"]));
+                            StudentFunc tmp = new StudentFunc(Convert.ToInt32(reader["Studen ID"]), reader["Name"].ToString(), reader["Surname"].ToString(), Convert.ToInt32(reader["Age"]), reader["School"].ToString(), Convert.ToInt32(reader["Spec ID"]));
                             Students.Add(tmp);
                         }
                     }
@@ -123,12 +123,12 @@ namespace FORM_SQL
                 var SpecName = (from sp in Specs
                                 where sp.SpecID == s.SpecID
                                 select sp.Type).FirstOrDefault();
-                var ProjectName = (from pr in Projects
-                                   where pr.ProjectId == s.ProjID
-                                   select pr.Name).FirstOrDefault();
+                //var ProjectName = (from pr in Projects
+                //                   where pr.ProjectId == s.ProjID
+                //                   select pr.Name).FirstOrDefault();
                 Console.WriteLine(SpecName);
 
-                object[] rowData = { s.Name, s.SecondName, s.Age, s.School, SpecName.ToString(), ProjectName.ToString() };
+                object[] rowData = { s.Name, s.SecondName, s.Age, s.School, SpecName.ToString()};
                 //label6.Text += $"{s.Name}, {s.SecondName}, {s.Age}, {s.School}, {s.SpecID}, {s.ProjID}\n";
                 dataGridView1.Rows.Add(rowData);
             }
@@ -149,13 +149,13 @@ namespace FORM_SQL
             var specTmp = comboBox1.SelectedItem.ToString();
             var tmpSpec = Specs.Find(n => n.Type == specTmp);
             temp1.SpecID = tmpSpec.SpecID;
-            temp1.ProjID = 1;
+            //temp1.ProjID = 1;
             string connectionString = "Data Source=C:\\Users\\artem\\Desktop\\projects\\SSQL\\1.db;Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string insert_str = @"INSERT INTO Students (Name, Surname, Age, School, [Spec ID], [Project ID]) VALUES" + $" ('{temp1.Name}', '{temp1.SecondName}', '{temp1.Age}', '{temp1.School}', '{temp1.SpecID}', '{temp1.ProjID}');";
+                string insert_str = @"INSERT INTO Students (Name, Surname, Age, School, [Spec ID]) VALUES" + $" ('{temp1.Name}', '{temp1.SecondName}', '{temp1.Age}', '{temp1.School}', '{temp1.SpecID}');";
                 using (SQLiteCommand command = new SQLiteCommand(insert_str, connection))
                 {
                     command.ExecuteNonQuery();

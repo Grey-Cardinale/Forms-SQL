@@ -14,13 +14,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace FORM_SQL
-{
+    {
+
     public partial class StudentDel : Form
     {
+        public List<Dictionary<int, int>> keyValuePairs = new List<Dictionary<int, int>>();
         public List<Specialisation> Specs = new List<Specialisation>();
         public List<StudentFunc> Students = new List<StudentFunc>();
         public List<Projects> Projects = new List<Projects>();
         private bool flag1, flag2, flag3 = false;
+       // private Dictionary<int, int> linkDict = new Dictionary<int, int>();
+        private List<Link> linkDict = new List<Link> ();
         public StudentDel()
         {
             InitializeComponent();
@@ -51,6 +55,28 @@ namespace FORM_SQL
             dataGridView1.Columns.Add(column6);
             string connectionString = "Data Source=C:\\Users\\artem\\Desktop\\projects\\SSQL\\1.db;Version=3;";
 
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string selectData = @"
+               SELECT * FROM Link;
+                );";
+
+                using (SQLiteCommand command = new SQLiteCommand(selectData, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Link tmp = new Link(Convert.ToInt32(reader["ID"]), Convert.ToInt32(reader["Stud ID"]), Convert.ToInt32(reader["Proj ID"]));
+                            linkDict.Add(tmp);
+
+                            //linkDict.Add(Convert.ToInt32(reader["Stud ID"]), Convert.ToInt32(reader["Proj ID"]));
+                        }
+                    }
+                }
+
+            }
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -87,7 +113,7 @@ namespace FORM_SQL
                     {
                         while (reader.Read())
                         {
-                            Projects tmp = new Projects(Convert.ToInt32(reader["Project ID"]), Convert.ToInt32(reader["Spec ID"]), reader["Name"].ToString(), reader["DDL"].ToString(), reader["Info"].ToString(), Convert.ToInt32(reader["Stud ID"]));
+                            Projects tmp = new Projects(Convert.ToInt32(reader["Project ID"]), Convert.ToInt32(reader["Spec ID"]), reader["Name"].ToString(), reader["DDL"].ToString(), reader["Info"].ToString());
                             Projects.Add(tmp);
                         }
                     }
@@ -107,7 +133,7 @@ namespace FORM_SQL
                     {
                         while (reader.Read())
                         {
-                            StudentFunc tmp = new StudentFunc(Convert.ToInt32(reader["Studen ID"]), reader["Name"].ToString(), reader["Surname"].ToString(), Convert.ToInt32(reader["Age"]), reader["School"].ToString(), Convert.ToInt32(reader["Spec ID"]), Convert.ToInt32(reader["Project ID"]));
+                            StudentFunc tmp = new StudentFunc(Convert.ToInt32(reader["Studen ID"]), reader["Name"].ToString(), reader["Surname"].ToString(), Convert.ToInt32(reader["Age"]), reader["School"].ToString(), Convert.ToInt32(reader["Spec ID"]));
                             Students.Add(tmp);
                         }
                     }
@@ -118,9 +144,24 @@ namespace FORM_SQL
                 var SpecName = (from sp in Specs
                                 where sp.SpecID == s.SpecID
                                 select sp.Type).FirstOrDefault();
-                var ProjectName = (from pr in Projects
-                                   where pr.ProjectId == s.ProjID
-                                   select pr.Name).FirstOrDefault();
+                string ProjectName = "";
+                int tmpProjectID = -1;
+                int StudId = s.Student_Id;
+                foreach (Dictionary<int, int> elems in keyValuePairs){
+                    if (elems.ContainsKey(StudId))
+                    {
+                        tmpProjectID = elems[StudId];
+                    }
+                }
+                for(int i = 0; i < Projects.Count; i++) {
+                    if (Projects[i].ProjectId == tmpProjectID)
+                    {
+                        ProjectName = Projects[i].Name;
+                    }
+                }
+                //var ProjectName = (from pr in Projects
+                //                   where pr.ProjectId == s.ProjID
+                //                   select pr.Name).FirstOrDefault();
                 Console.WriteLine(SpecName);
 
                 object[] rowData = { s.Student_Id, s.Name, s.SecondName, s.Age, s.School, SpecName.ToString(), ProjectName.ToString() };
@@ -135,10 +176,25 @@ namespace FORM_SQL
             int temp1 = Convert.ToInt32(textBox1.Text);
 
             string connectionString = "Data Source=C:\\Users\\artem\\Desktop\\projects\\SSQL\\1.db;Version=3;";
-
+            //відкрити таблицю лінк (записати дані у словник(інт:інт))
+            //знайти ай ді студента
+            //якщо ай ді є виконати деліт
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+     
             {
                 connection.Open();
+                foreach (var elem in linkDict) {
+                    if (elem.StudID == temp1)
+                    {
+                        string delete_str = @"DELETE FROM Link WHERE [Stud ID] = " + $" '{temp1}';";
+                        using (SQLiteCommand command = new SQLiteCommand(delete_str, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        break;
+                    }
+                }
+
                 string insert_str = @"DELETE FROM Students WHERE [Studen ID] = " + $" '{temp1}';";
                 using (SQLiteCommand command = new SQLiteCommand(insert_str, connection))
                 {

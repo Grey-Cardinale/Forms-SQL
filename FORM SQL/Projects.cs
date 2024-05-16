@@ -13,7 +13,7 @@ namespace SSQL
         public string Name { get; set; }
         public string DDL { get; set; }
         public string Info { get; set; }
-        public int StudID { get; set; }
+        //public int StudID { get; set; }
 
         public Projects() 
         { 
@@ -22,16 +22,16 @@ namespace SSQL
             Name = string.Empty;
             DDL = string.Empty;
             Info = string.Empty;
-            StudID = 0;
+           // StudID = 0;
         }
-        public Projects(int ProjectId, int SpecID, string Name, string DDL, string info, int StudID)
+        public Projects(int ProjectId, int SpecID, string Name, string DDL, string info)
         {
             this.ProjectId = ProjectId;
             this.SpecID = SpecID;
             this.Name = Name;
             this.DDL = DDL;
             this.Info = info;
-            this.StudID = StudID;
+           // this.StudID = StudID;
         }
 
     }
